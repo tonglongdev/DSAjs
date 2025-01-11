@@ -17,9 +17,23 @@ class MyOwnArray {
     this.length--;
     return lastItem;
   }
+  shift() {
+    const firstItem = this.data[0];
+    this.shiftItems(0);
+    return firstItem;
+  }
+  shiftItems(index) {
+    for (let i = index; i < this.length - 1; i++) {
+      this.data[i] = this.data[i + 1];
+    }
+    delete this.data[this.length - 1];
+    this.length--;
+  }
 }
 
 const myArray = new MyOwnArray();
 myArray.push("hi");
-myArray.push("hiiiii");
-console.log(myArray.get(1));
+myArray.push("hi1");
+myArray.push("hi2");
+console.log(myArray.shift());
+console.log(myArray);
