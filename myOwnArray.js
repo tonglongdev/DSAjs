@@ -29,11 +29,16 @@ class MyOwnArray {
     delete this.data[this.length - 1];
     this.length--;
   }
+  delete(index) {
+    const item = this.data[index];
+    this.shiftItems(index);
+    return item;
+  }
 }
 
 const myArray = new MyOwnArray();
 myArray.push("hi");
 myArray.push("hi1");
 myArray.push("hi2");
-console.log(myArray.shift());
+// console.log(myArray.delete(2));
 console.log(myArray);
