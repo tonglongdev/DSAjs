@@ -15,6 +15,19 @@ function chunk(arr, num) {
   }
   return finalArr;
 }
-const result = chunk([1, 2, 3, 4, 5, 6, 7], 3);
-console.log(result);
+// const result = chunk([1, 2, 3, 4, 5, 6, 7], 3);
+// console.log(result);
 // [[1,2], [3,4]]
+
+function chunkArray(array, size) {
+  const chunked = [];
+  let index = 0;
+  while (index < array.length) {
+    if (chunked.length >= size) break;
+    chunked.push(array.slice(index, index + size));
+    index += size;
+  }
+  return chunked;
+}
+const result = chunkArray([1, 2, 3, 4, 5, 6, 7], 3);
+console.log(result);
