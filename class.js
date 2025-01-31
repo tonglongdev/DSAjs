@@ -17,6 +17,7 @@
 // class Student extends Person {
 //   constructor(name, age, course) {
 //     // 'super' keyword for inheritance props and method of class Person
+//     // override new name and age
 //     super(name, age);
 //     this.course = course;
 //   }
@@ -68,36 +69,46 @@
 /* ============================== */
 
 // all in one:
-class Animal {
-  constructor(name) {
+// class Animal {
+//   constructor(name) {
+//     this.name = name;
+//   }
+
+//   speak() {
+//     console.log(`${this.name} phát ra tiếng kêu.`);
+//   }
+// }
+
+// class Dog extends Animal {
+//   constructor(name, breed) {
+//     super(name);
+//     this.breed = breed;
+//   }
+
+//   speak() {
+//     super.speak(); // Gọi phương thức speak() của class cha
+//     console.log(`${this.name} sủa: Gâu gâu!`);
+//   }
+
+//   static info() {
+//     console.log("Đây là lớp Dog.");
+//   }
+// }
+
+// const dog1 = new Dog("Lucky", "Husky");
+// dog1.speak();
+// // Output:
+// // Lucky phát ra tiếng kêu.
+// // Lucky sủa: Gâu gâu!
+
+// Dog.info(); // Output: Đây là lớp Dog.
+
+class User {
+  constructor(name, age) {
+    if (!name || !age) throw new Error("invalid name or age");
     this.name = name;
-  }
-
-  speak() {
-    console.log(`${this.name} phát ra tiếng kêu.`);
+    this.age = age;
+    console.log(this);
   }
 }
-
-class Dog extends Animal {
-  constructor(name, breed) {
-    super(name);
-    this.breed = breed;
-  }
-
-  speak() {
-    super.speak(); // Gọi phương thức speak() của class cha
-    console.log(`${this.name} sủa: Gâu gâu!`);
-  }
-
-  static info() {
-    console.log("Đây là lớp Dog.");
-  }
-}
-
-const dog1 = new Dog("Lucky", "Husky");
-dog1.speak();
-// Output:
-// Lucky phát ra tiếng kêu.
-// Lucky sủa: Gâu gâu!
-
-Dog.info(); // Output: Đây là lớp Dog.
+const user = new User();
